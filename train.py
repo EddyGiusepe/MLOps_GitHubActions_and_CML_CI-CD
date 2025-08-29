@@ -134,10 +134,24 @@ class ChurnModelPipeline:
             outfile.write(f"Accuracy = {round(accuracy, 2)}, F1 Score = {round(f1, 2)}\n")
         print("Métricas salvas em 'metrics.txt'.")
 
-    
+    def plot_roc_curve(self):
+        """Plota e salva a curva ROC para o classificador."""
+        print("Plotando curva ROC...")
+        y_probs = self.model_pipeline.predict_proba(self.X_test)[:, 1]  # Probabilidades para a classe 1
+        fpr, tpr, _ = roc_curve(self.y_test, y_probs)
 
+        plt.figure(figsize=(8, 6))
+        plt.plot(fpr, tpr, color='darkorange', lw=2, label=f'ROC curve (area = {roc_auc_score(self.y_test, y_probs):.2f})')
+        plt.plot([0, 1], [0, 1], color='navy', lw=2, linestyle='--')
+        plt.xlim([0.0, 1.0])
+        plt.ylim([0.0, 1.05])
+        plt.xlabel('Taxa de Falso Positivo')
+        plt.ylabel('Taxa de Verdadeiro Positivo')
+        plt.title('Curva ROC (Receiver Operating Characteristic)')
+        plt.legend(loc="lower right")
+        plt.savefig("roc_curve.png", dpi=120) # dpi significa "dots per inch" e é a resolução da imagem.
+        print("Curva ROC salva como 'roc_curve.png'.")
 
-    
 
     def save_pipeline(self):
         """Salva o pipeline treinado usando skops."""

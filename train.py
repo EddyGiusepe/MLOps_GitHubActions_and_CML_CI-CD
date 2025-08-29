@@ -10,6 +10,9 @@ Para isso, vamos usar o dataset Churn_Modelling.csv, que contém
 informações sobre clientes de uma empresa de telecomunicações. Ademais,
 vamos a implementar um pipeline de machine learning para treinar o modelo.
 
+RUN
+---
+uv run train.py
 
 NOTA:
 Talvez necessite instalar:

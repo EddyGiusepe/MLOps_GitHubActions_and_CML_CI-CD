@@ -1,0 +1,19 @@
+[project]
+name = "projeto-mlops-ci-cd"
+version = "0.1.0"
+description = "Neste projeto usaremos GitHub Actions para CI/CD"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "black>=25.1.0",
+    "matplotlib>=3.10.5",
+    "numpy>=2.3.2",
+    "pandas>=2.3.2",
+    "scikit-learn>=1.7.1",
+    "skops>=0.13.0",
+]
+
+[dependency-groups]
+dev = [
+    "black>=25.1.0",
+]

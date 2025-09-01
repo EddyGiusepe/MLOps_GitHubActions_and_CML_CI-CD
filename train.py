@@ -40,6 +40,24 @@ from sklearn.linear_model import LogisticRegression
 
 
 class ChurnModelPipeline:
+    """Pipeline para treinamento de modelo de previsão de churn (cancelamento de contrato) em telecomunicações.
+
+    Esta classe implementa um pipeline completo para treinamento de modelo de machine learning,
+    incluindo carregamento de dados, pré-processamento, seleção de características e treinamento
+    do modelo final.
+
+    Attributes:
+        data_path (str): Caminho para o arquivo CSV com os dados
+        target_column (str): Nome da coluna alvo/target para previsão
+        index_col (str | int | None): Coluna(s) a ser usada como índice do DataFrame
+        random_state (int): Semente aleatória para reprodutibilidade
+        model_pipeline (Pipeline | None): Pipeline completo do modelo após treinamento
+        X_train (pd.DataFrame | None): Features de treino
+        X_test (pd.DataFrame | None): Features de teste  
+        y_train (pd.Series | None): Target de treino
+        y_test (pd.Series | None): Target de teste
+        preprocessor (ColumnTransformer | None): Transformador para pré-processamento dos dados
+    """
     def __init__(self, data_path, target_column, index_col=None, random_state=125):
         """Inicializa a classe do pipeline do modelo com o dataset e a configuração."""
         self.data_path = data_path

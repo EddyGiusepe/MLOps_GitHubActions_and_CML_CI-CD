@@ -204,3 +204,4 @@ if __name__ == "__main__":
 
     # Salva o pipeline:
     churn_pipeline.save_pipeline()
+    print("CI/CD concluído com sucesso. Dr. Eddy Giusepe")
